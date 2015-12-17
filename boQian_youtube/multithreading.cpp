@@ -16,8 +16,7 @@ public:
 };
 
 int	main(){
-	Fctor fct;
-	thread t1(fct);	// t1 starts running
+	thread t1((Fctor()));	// t1 starts running
 	try{
 		for (int i = 0; i < 100; i++) cout << "from main: " << i << endl;
 	} catch(...) {
