@@ -9,16 +9,17 @@ void	function1() { cout << "Hello World\n"; }
 
 class Fctor {
 public:
-	void operator()(){
-		for (int i=0; i>-100; i--){ cout << "from t1 " << i << endl; }
+	void operator()(string msg){
+		cout << "t1 says: " << msg << endl;
 	}
 
 };
 
 int	main(){
-	thread t1((Fctor()));	// t1 starts running
+	string s = "Where there is no trust, there is no love";
+	thread t1((Fctor()), s);	// t1 starts running
 	try{
-		for (int i = 0; i < 100; i++) cout << "from main: " << i << endl;
+		cout << "from main: " << s << endl;
 	} catch(...) {
 		t1.join();	//main thread waits for t1 to finish
 		throw;
