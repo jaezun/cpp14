@@ -17,6 +17,7 @@ int	main(){
 	string s = "Where there is no trust, there is no love";
 	thread t1((Fctor()), ref(s));	// t1 starts running
 	cout << t1.get_id() << endl;
+	cout << thread::hardware_concurrency() << endl;
 
 	thread t2 = move(t1);
 
